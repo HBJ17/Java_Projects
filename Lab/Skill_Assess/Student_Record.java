@@ -55,29 +55,22 @@ class StudentExam extends Person {
         System.out.println();
         System.out.printf("Average    : %.2f%n", avg);
         System.out.println("Result     : " + CheckResult(avg));
-        System.out.println(
-            "Name starts with 'A'? : " +
-            (NameCheck() ? "Yes" : "No")
-        );
+        System.out.println("Name starts with 'A'? : " + (NameCheck() ? "Yes" : "No"));
     }
 }
 
 public class Student_Record {
     public static void main(String[] args) {
 
-        try (Scanner fileScanner =
-                     new Scanner(new File("Lab\\Skill_Assess\\Files\\student.txt"))) {
+        try (Scanner fileScanner = new Scanner(new File("Lab\\Skill_Assess\\Files\\student.txt"))) {
 
             String name = fileScanner.nextLine().trim();
 
-            int age =
-                Integer.parseInt(fileScanner.nextLine().trim());
+            int age = Integer.parseInt(fileScanner.nextLine().trim());
 
-            int rollNumber =
-                Integer.parseInt(fileScanner.nextLine().trim());
+            int rollNumber = Integer.parseInt(fileScanner.nextLine().trim());
 
-            String[] markTokens =
-                fileScanner.nextLine().trim().split("\\s+");
+            String[] markTokens = fileScanner.nextLine().trim().split("\\s+");
 
             int[] marks = new int[5];
 
@@ -85,15 +78,12 @@ public class Student_Record {
                 marks[i] = Integer.parseInt(markTokens[i]);
             }
 
-            StudentExam student =
-                new StudentExam(name, age, rollNumber, marks);
+            StudentExam student = new StudentExam(name, age, rollNumber, marks);
 
             student.DisplayDetails();
 
         } catch (Exception e) {
-            System.out.println(
-                "Error reading student file: " + e.getMessage()
-            );
+            System.out.println("Error reading student file: " + e.getMessage());
         }
     }
 }
